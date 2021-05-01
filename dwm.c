@@ -198,6 +198,9 @@ static void drawbars(void);
 static void enternotify(XEvent *e);
 static void expose(XEvent *e);
 static Client *findbefore(Client *c);
+static void floatbig(const Arg *arg);
+static void floatmedium(const Arg *arg);
+static void floatsmall(const Arg *arg);
 static void focus(Client *c);
 static void focusin(XEvent *e);
 static void focusmon(const Arg *arg);
@@ -950,6 +953,66 @@ expose(XEvent *e)
 		drawbar(m);
 		if (m == selmon)
 			updatesystray();
+	}
+}
+
+void
+floatbig(const Arg *arg)
+{
+	Client *c;
+	int nx, ny;
+	int nw = selmon->ww * 0.8;
+	int nh = selmon->wh * 0.8;
+	c = selmon->sel;
+
+	togglefloating(arg);
+	if (c->isfloating) {
+		/* first resize */
+		resize(c, 0, 0, nw - 2*c->bw, nh - 2*c->bw, 0);
+		nx = selmon->wx + (selmon->ww / 2) - (c->w / 2);
+		ny = selmon->wy + (selmon->wh / 2) - (c->h / 2);
+		/* next move */
+		resize(c, nx, ny, c->w, c->h, 0);
+	}
+}
+
+void
+floatmedium(const Arg *arg)
+{
+	Client *c;
+	int nx, ny;
+	int nw = selmon->ww * 0.7;
+	int nh = selmon->wh * 0.7;
+	c = selmon->sel;
+
+	togglefloating(arg);
+	if (c->isfloating) {
+		/* first resize */
+		resize(c, 0, 0, nw - 2*c->bw, nh - 2*c->bw, 0);
+		nx = selmon->wx + (selmon->ww / 2) - (c->w / 2);
+		ny = selmon->wy + (selmon->wh / 2) - (c->h / 2);
+		/* next move */
+		resize(c, nx, ny, c->w, c->h, 0);
+	}
+}
+
+void
+floatsmall(const Arg *arg)
+{
+	Client *c;
+	int nx, ny;
+	int nw = selmon->ww * 0.57;
+	int nh = selmon->wh * 0.57;
+	c = selmon->sel;
+
+	togglefloating(arg);
+	if (c->isfloating) {
+		/* first resize */
+		resize(c, 0, 0, nw - 2*c->bw, nh - 2*c->bw, 0);
+		nx = selmon->wx + (selmon->ww / 2) - (c->w / 2);
+		ny = selmon->wy + (selmon->wh / 2) - (c->h / 2);
+		/* next move */
+		resize(c, nx, ny, c->w, c->h, 0);
 	}
 }
 
