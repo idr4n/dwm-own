@@ -17,12 +17,12 @@ static const char *fonts[]          = {"Mononoki Nerd Font:size=11:antialias=tru
                                        "Hack:size=10:antialias=true:autohint=true",
                                        "JoyPixels:size=10:antialias=true:autohint=true"};
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#10151a";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#2b4c92";
-static const char col_border[]      = "#FF6D1F";
+static const char col_gray3[]       = "#ebdbb2";
+static const char col_gray4[]       = "#ffb52a";
+static const char col_cyan[]        = "#10151a";
+static const char col_border[]      = "#ffb52a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
