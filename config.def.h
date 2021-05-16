@@ -35,17 +35,18 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x35", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x35", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd3[] = {"st", "-n", "spt2", "-g", "130x32", "-e", "vim", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
+	{"spfm",        spcmd2},
+	{"spt2",        spcmd3},
 };
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+/* static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -56,10 +57,10 @@ static const Rule rules[] = {
 	{ "Gimp",	            NULL,			    NULL,	    	0,				  1,			 -1 },
 	{ "firefox",          NULL,			    NULL,	    	1 << 0,			0,			 -1 },
 	{ "Brave-browser",    NULL,			    NULL,	    	1 << 2,			1,			 -1 },
-	{ "TelegramDesktop",  NULL,			    NULL,	    	1 << 8,			1,			 -1 },
+	{ "TelegramDesktop",  NULL,			    NULL,	    	1 << 4,			1,			 -1 },
 	{ NULL,		            "spterm",	 	  NULL,	    	SPTAG(0),		1,			 -1 },
 	{ NULL,		            "spfm",		    NULL,	    	SPTAG(1),		1,			 -1 },
-	{ NULL,		            "keepassxc", 	NULL,	    	SPTAG(2),		0,			 -1 },
+	{ NULL,		            "spt2",		    NULL,	    	SPTAG(2),		1,			 -1 },
 };
 
 /* layout(s) */
